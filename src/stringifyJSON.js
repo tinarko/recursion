@@ -7,17 +7,20 @@
 
 var stringifyJSON = function(obj) {
 
-	//console.log("checking object: "+ obj);
-	//console.log("type of object = "+ (typeof(obj)));
 
-	if (obj == null){
-		//console.log("added null");
+	console.log("checking object: "+ obj);
+	console.log("type of object = "+ (typeof(obj)));
+
+	if (typeof(obj) == "function" || typeof(obj)== "undefined"){
+		return '';
+	} else if (obj == null){
+		console.log("added null");
 		return "null";
 	} else if (typeof(obj) == "number" || typeof(obj) == "boolean"){
-		//console.log("added number or boolean: " + obj);
+		console.log("added number or boolean: " + obj);
 		return '' + obj;
 	} else if (typeof(obj) == "string"){
-		//console.log("added string, function, or undefined: " + obj);
+		console.log("added string, function, or undefined: " + obj);
 		return "\""+obj+ "\"";
 	} else if (Array.isArray(obj)){
 		if (obj.length == 0){
@@ -37,6 +40,7 @@ var stringifyJSON = function(obj) {
 			//console.log("delete , so stringified is now " + stringified);
 			final+=(']');
 			//console.log("after a lot of stuff, stringified now = " + final);
+
 			return final;
 		}
 	} else if (typeof(obj) == "object"){
@@ -60,5 +64,4 @@ var stringifyJSON = function(obj) {
 	} else {
 		return '';
 	}
-
 };
