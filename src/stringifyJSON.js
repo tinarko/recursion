@@ -10,9 +10,7 @@ var stringifyJSON = function(obj) {
 	//console.log("checking object: "+ obj);
 	//console.log("type of object = "+ (typeof(obj)));
 
-	if (typeof(obj) == "function" || typeof(obj)== "undefined"){
-		return '';
-	} else if (obj == null){
+	if (obj == null){
 		//console.log("added null");
 		return "null";
 	} else if (typeof(obj) == "number" || typeof(obj) == "boolean"){
@@ -59,6 +57,8 @@ var stringifyJSON = function(obj) {
 		//console.log("after a lot of stuff, stringified now = " + final);
 		return final;
 
+	} else {
+		return '';
 	}
 
 };
